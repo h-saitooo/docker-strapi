@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  strapi:
+    image: strapi/strapi
+    env_file: .env
+    volumes:
+      - data-app:/srv/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    env_file: .env
+    volumes:
+      - data-db:/var/lib/postgresql/data
+
+volumes:
+  data-app:
+    external:
+      name: ${COMPOSE_PROJECT_NAME}-app
+  data-db:
+    external:
+      name: ${COMPOSE_PROJECT_NAME}-db
