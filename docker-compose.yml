@@ -18,8 +18,6 @@ services:
 
 volumes:
   data-app:
-    external:
-      name: ${COMPOSE_PROJECT_NAME}-app
+    name: ${COMPOSE_PROJECT_NAME}-app
   data-db:
-    external:
-      name: ${COMPOSE_PROJECT_NAME}-db
+    name: ${COMPOSE_PROJECT_NAME}-db
